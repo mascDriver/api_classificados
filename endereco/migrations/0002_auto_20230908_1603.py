@@ -2,6 +2,8 @@
 import httpx
 from django.db import migrations
 
+httpx._config.DEFAULT_CIPHERS += ":ALL:@SECLEVEL=1"
+
 
 def populate_address(apps, schema_editor):
     Pais = apps.get_model("endereco", "Pais")
