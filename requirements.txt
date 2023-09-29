@@ -7,3 +7,4 @@ django-localflavor==4.0
 django-cors-headers==4.2.0
 Pillow==10.0.1
 cryptography==36.0.2
+requests==2.31.0
