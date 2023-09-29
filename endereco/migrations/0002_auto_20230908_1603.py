@@ -7,14 +7,14 @@ def populate_address(apps, schema_editor):
     Pais = apps.get_model("endereco", "Pais")
     Estado = apps.get_model("endereco", "Estado")
     Cidade = apps.get_model("endereco", "Cidade")
-    paises = requests.get('https://servicodados.ibge.gov.br/api/v1/localidades/paises').json()
+    paises = requests.get('https://servicodados.ibge.gov.br/api/v1/localidades/paises', verify=False).json()
     for pais in paises:
         Pais.objects.create(id=pais['id']['M49'], nome=pais['nome'], sigla=pais['id']['ISO-ALPHA-3'])
-    estados = requests.get(f'https://servicodados.ibge.gov.br/api/v1/localidades/estados').json()
+    estados = requests.get(f'https://servicodados.ibge.gov.br/api/v1/localidades/estados', verify=False).json()
     for estado in estados:
         Estado.objects.create(id=estado['id'], nome=estado['nome'], sigla=estado['sigla'], pais_id=76)
         cidades = requests.get(
-            f'https://servicodados.ibge.gov.br/api/v1/localidades/estados/{estado["id"]}/municipios').json()
+            f'https://servicodados.ibge.gov.br/api/v1/localidades/estados/{estado["id"]}/municipios', verify=False).json()
         for cidade in cidades:
             Cidade.objects.create(id=cidade['id'], nome=cidade['nome'],
                                   estado_id=cidade['microrregiao']['mesorregiao']['UF']['id'])
