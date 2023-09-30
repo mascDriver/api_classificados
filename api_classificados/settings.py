@@ -164,6 +164,7 @@ CORS_ALLOWED_ORIGIN_REGEXES = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://0.0.0.0:3000",
+    "https://classificados-app.vercel.app"
 ]
 
 CSRF_TRUSTED_ORIGINS = ['https://apiclassificados-production.up.railway.app',
