@@ -10,3 +10,6 @@ cryptography~=36.0.2
 requests~=2.31.0
 gunicorn==21.2.0
 whitenoise==6.5.0
+python-dotenv==1.0.0
+dj-database-url==2.1.0
+psycopg2-binary==2.9.8
