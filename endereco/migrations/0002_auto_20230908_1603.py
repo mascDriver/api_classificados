@@ -21,7 +21,7 @@ def populate_address(apps, schema_editor):
         s.mount("https://", TLSAdapter())
         paises = s.get('https://servicodados.ibge.gov.br/api/v1/localidades/paises').json()
         for pais in paises:
-            Pais.objects.create(id=pais['id']['M49'], nome=pais['nome'], sigla=pais['id']['ISO-ALPHA-3'])
+            Pais.objects.create(id=pais['id']['M49'], nome=pais['nome'], sigla=pais['id']['ISO-ALPHA-2'])
         estados = s.get(f'https://servicodados.ibge.gov.br/api/v1/localidades/estados').json()
         for estado in estados:
             Estado.objects.create(id=estado['id'], nome=estado['nome'], sigla=estado['sigla'], pais_id=76)
