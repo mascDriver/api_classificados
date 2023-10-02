@@ -40,15 +40,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'classificados',
     'endereco',
-    'rest_framework',
+    'blog',
+
     'django_cleanup.apps.CleanupConfig',
+    'rest_framework',
+    'rest_framework.authtoken',
     'corsheaders',
     'django_filters',
-    'rest_framework.authtoken',
 
     'whitenoise.runserver_nostatic',
+
+    'ckeditor'
 ]
 
 MIDDLEWARE = [

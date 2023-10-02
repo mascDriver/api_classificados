@@ -21,12 +21,12 @@ from django.urls import path, include
 
 from rest_framework import routers
 
-from classificados import views
+from classificados.urls import router as classificados_router
+from blog.urls import router as blog_router
 
 router = routers.DefaultRouter()
-router.register(r'empresas', views.EmpresaViewSet)
-router.register(r'prospectos', views.ProspectoViewSet)
-router.register(r'categorias', views.CategoriaViewSet)
+router.registry.extend(classificados_router.registry)
+router.registry.extend(blog_router.registry)
 
 urlpatterns = [
                   path('', include(router.urls)),
